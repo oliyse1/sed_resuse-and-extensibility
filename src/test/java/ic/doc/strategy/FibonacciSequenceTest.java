@@ -13,6 +13,7 @@ public class FibonacciSequenceTest {
   final FibonacciSequence fibonacciSequence = new FibonacciSequence();
   final Sequence sequence = new Sequence(fibonacciSequence);
 
+  // Test to check that the first two terms of the sequence have value 1
   @Test
   public void definesFirstTwoTermsToBeOne() {
 
@@ -20,6 +21,8 @@ public class FibonacciSequenceTest {
     assertThat(sequence.term(1), is(1));
   }
 
+  // Test to check that for terms other than the first two terms, terms have each term equal to the
+  // sum of the previous two terms
   @Test
   public void definesSubsequentTermsToBeTheSumOfThePreviousTwo() {
 
@@ -28,6 +31,7 @@ public class FibonacciSequenceTest {
     assertThat(sequence.term(4), is(5));
   }
 
+  // Test to check that the sequence is undefined for negative terms
   @Test
   public void isUndefinedForNegativeIndices() {
 
@@ -39,9 +43,9 @@ public class FibonacciSequenceTest {
     }
   }
 
+  // Test to check that the sequence can be iterated through
   @Test
   public void canBeIteratedThrough() {
     assertThat(sequence, beginsWith(1, 1, 2, 3, 5));
   }
-
 }
